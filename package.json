@@ -1,0 +1,67 @@
+{
+  "name": "icloud-reminders",
+  "version": "1.0.0",
+  "description": "An Unofficial desktop app for iCloud Reminders",
+  "main": "main.js",
+  "homepage": "https://github.com/johnpipi/icloud-reminders",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
+  },
+  "build": {
+    "asar": true,
+    "appId": "com.johnpipi.icloud-reminders",
+    "directories": {
+      "buildResources": "."
+    },
+    "files": [
+      "*",
+      "node_modules/**/*",
+      "package.json",
+      "icon.png"
+    ],
+    "linux": {
+      "target": [
+        "snap",
+        "deb"
+      ],
+      "icon": "./icon.png",
+      "category": "Network;TextTools;Office;GTK;GNOME"
+    },
+    "snap": {
+      "confinement": "strict",
+      "grade": "stable",
+      "summary": "Linux Client for iCloud Reminders",
+      "plugs": [
+        "desktop",
+        "desktop-legacy",
+        "home",
+        "x11",
+        "unity7",
+        "browser-support",
+        "network",
+        "gsettings",
+        "opengl"
+      ]
+    },
+    "deb": {
+      "icon": "./icon.png",
+      "category": "Network;TextTools;Office;GTK;GNOME"
+    }
+  },
+  "keywords": [],
+  "author": {
+    "name": "John",
+    "email": "johnpipi@gmail.com"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^37.1.0",
+    "electron-builder": "^26.0.12"
+  },
+  "dependencies": {
+    "electron-context-menu": "^4.1.0"
+  }
+}
